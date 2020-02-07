@@ -1,0 +1,52 @@
+<p>student works!</p>
+<div class="container">
+<div id="student">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td><input type="text" [(ngModel)]="id"></td>
+            
+        </tr>
+        <tr>
+            <td>name</td>
+            <td><input type="text" [(ngModel)]="name"></td>
+        </tr>
+        <tr>
+            <td>std</td>
+            <td><select [(ngModel)]="std">
+                
+            <option *ngFor="let item of stds">
+              {{item}}  
+            </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>age</td>
+            <td><input type="text" [(ngModel)]="age"></td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)='Add()'>click</button>
+                <button (click)='Setval()'>{{val?'show':'hide'}}</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<table class="table table-responsive" >
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th *ngIf="val">Class</th>
+        <th *ngIf="val">Age</th>
+        
+    </tr>
+    <tr *ngFor="let item of list">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td *ngIf="val">{{item.std}}</td>
+        <td *ngIf="val">{{item.age}}</td>
+    </tr>
+</table>
+</div>

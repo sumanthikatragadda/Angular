@@ -1,0 +1,32 @@
+<h1>Customer Details</h1>
+<ul>
+  <li *ngFor="let cmr of Customer">
+    {{cmr.name}}{{cmr.age}}
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let cmr of Customer let i=index">
+    {{i+1}} {{cmr.name}}{{cmr.age}}
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let group of Student">
+    {{group.country}}
+    <ul>
+      <li *ngFor="let std of group.student">
+        {{std.name}} {{std.age}}
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul *ngFor="let cmr of Customer" [ngSwitch]="cmr.country">
+  <li *ngSwitchCase="'india'" class="text-primary">
+    {{cmr.name}} {{cmr.age}}
+  </li>
+  <li *ngSwitchCase="'usa'" class="text-danger">
+    {{cmr.name}} {{cmr.age}}
+  </li>
+  <li *ngSwitchDefault class="text-primary">
+    {{cmr.name}} {{cmr.age}}
+  </li>
+</ul>
